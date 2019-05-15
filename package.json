@@ -1,0 +1,22 @@
+{
+  "name": "liturgy-s-slideshow-creator",
+  "version": "1.0.0",
+  "description": "Sistema para criar slides para missa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natanielsr/liturgy-s-slideshow-creator.git"
+  },
+  "author": "Nataniel Soares Rodrigues",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Natanielsr/liturgy-s-slideshow-creator/issues"
+  },
+  "homepage": "https://github.com/Natanielsr/liturgy-s-slideshow-creator#readme",
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  }
+}
