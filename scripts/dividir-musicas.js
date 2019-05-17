@@ -1,13 +1,18 @@
 var fs = require('fs');
 
 let musicas = [];
-try {
-    var data = fs.readFileSync('./resources/musicas.txt', 'utf8');
-    console.log(data.toString());
-    separarMusicas(data);
 
-} catch(e) {
-    console.log('Error:', e.stack);
+var lerArquivo = function (){
+  try {
+    let path ='./resources/musicas.txt'
+    console.log('>>Lendo '+path)
+      var data = fs.readFileSync(path, 'utf8');
+      //console.log(data.toString());
+      return separarMusicas(data);
+
+  } catch(e) {
+      console.log('Error:', e.stack);
+  }
 }
 
 function separarMusicas(data){
@@ -62,5 +67,7 @@ function separarMusicas(data){
       titulo = '';
     }
   })
-  console.log(musicas);
+  return musicas;
 }
+
+module.exports = lerArquivo;
