@@ -1,11 +1,20 @@
 var PptxGenJS = require("pptxgenjs");
-let tamanhoMaximoFont = 30
+let tamanhoMaximoFont = 40
 let tamanhoMinimoFont = 20
-var gerar = function (musicas){
+var gerar = function (liturgia, musicas){
   var pptx = new PptxGenJS();
-  let numeroDeMusicas = musicas.length
-  console.log('>> Numero de Musicas '+numeroDeMusicas);
 
+  var capaSlide = pptx.addNewSlide();
+  capaSlide.addText(liturgia.dia, { x:3, y:0.25, fontSize:30, color:'363636' });
+  capaSlide.addText(
+    liturgia.leitura1+'\n'+
+    liturgia.salmo+'\n'+
+    liturgia.fraseSalmo+'\n'+
+    liturgia.leitura2+'\n'+
+    liturgia.evangelho, { x:1., y:3,fontSize: 25, color:'363636' })
+
+  let numeroDeMusicas = musicas.length;
+  console.log('>> Numero de Musicas '+numeroDeMusicas);
   let contadorSlide = 1
   for (var i = 0; i < numeroDeMusicas; i++) {
     let musica = musicas[i];
