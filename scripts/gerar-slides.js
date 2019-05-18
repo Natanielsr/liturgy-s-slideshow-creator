@@ -5,13 +5,15 @@ var gerar = function (liturgia, musicas){
   var pptx = new PptxGenJS();
 
   var capaSlide = pptx.addNewSlide();
-  capaSlide.addText(liturgia.dia, { x:'25%', y:'5%', fontSize:30, color:'8F1010', bold: true });
+  capaSlide.addText(liturgia.dia, { x:'0%', y:'5%', w:'100%',align: 'center',
+   fontSize:30, color:'8F1010', bold: true });
   capaSlide.addText(
-    liturgia.leitura1+'\n'+
-    liturgia.salmo+'\n'+
-    liturgia.fraseSalmo+'\n'+
-    liturgia.leitura2+'\n'+
-    liturgia.evangelho, { x:1., y:3,fontSize: 25, color:'363636' })
+    [{ text: liturgia.leitura1},
+    {text:liturgia.salmo},
+    {text:liturgia.fraseSalmo, options :{color: '8F1010'}},
+    {text:liturgia.leitura2},
+    {text:liturgia.evangelho}], { x:'5%', y:'15%', w: '90%', h:'85%',
+    fontSize: 30, color:'363636', align: 'center' })
 
   let numeroDeMusicas = musicas.length;
   console.log('>> Numero de Musicas '+numeroDeMusicas);
@@ -26,7 +28,7 @@ var gerar = function (liturgia, musicas){
 
       var slide = pptx.addNewSlide();
       slide.addText(musica.titulo, { x:'0%', y:'5%', w:'100%',
-       fontSize:18, color:'8F1010', bold:true, align: 'center' });
+       fontSize:20, color:'8F1010', bold:true, align: 'center' });
 
       slide.addText(estrofe, { x:'5%', y:'15%', w:'90%', h: '85%', fontSize:calculaTamanhoFonte(estrofe.length),
        color:'363636', align :'center'})
