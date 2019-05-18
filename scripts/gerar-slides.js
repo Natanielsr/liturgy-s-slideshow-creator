@@ -1,11 +1,11 @@
 var PptxGenJS = require("pptxgenjs");
-let tamanhoMaximoFont = 40
-let tamanhoMinimoFont = 20
+let tamanhoMaximoFont = 44
+let tamanhoMinimoFont = 23
 var gerar = function (liturgia, musicas){
   var pptx = new PptxGenJS();
 
   var capaSlide = pptx.addNewSlide();
-  capaSlide.addText(liturgia.dia, { x:3, y:0.25, fontSize:30, color:'363636' });
+  capaSlide.addText(liturgia.dia, { x:'25%', y:'5%', fontSize:30, color:'8F1010', bold: true });
   capaSlide.addText(
     liturgia.leitura1+'\n'+
     liturgia.salmo+'\n'+
@@ -25,8 +25,11 @@ var gerar = function (liturgia, musicas){
       let estrofe = musica.estrofes[j];
 
       var slide = pptx.addNewSlide();
-      slide.addText(musica.titulo, { x:4, y:0.5, fontSize:18, color:'363636' });
-      slide.addText(estrofe, { x:1., y:3, fontSize:calculaTamanhoFonte(estrofe.length), color:'363636' })
+      slide.addText(musica.titulo, { x:'0%', y:'5%', w:'100%',
+       fontSize:18, color:'8F1010', bold:true, align: 'center' });
+
+      slide.addText(estrofe, { x:'5%', y:'15%', w:'90%', h: '85%', fontSize:calculaTamanhoFonte(estrofe.length),
+       color:'363636', align :'center'})
 
       process.stdout.write('>> Slide  '+contadorSlide+' Gerado com sucesso!');
 
