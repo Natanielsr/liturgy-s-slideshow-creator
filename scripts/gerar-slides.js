@@ -34,6 +34,13 @@ var gerar = function (liturgia, musicas){
       contadorSlide ++;
     }
 
+    var slideDivisorio = pptx.addNewSlide();
+    slideDivisorio.addImage({
+      w: 10,
+      h: 6,
+      path:'./resources/santa-terezinha.jpg'
+    });
+
   }
 
   let path = './slide-result/slide'
