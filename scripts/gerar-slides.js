@@ -1,8 +1,15 @@
 var PptxGenJS = require("pptxgenjs");
 let tamanhoMaximoFont = 44
 let tamanhoMinimoFont = 23
-var gerar = function (liturgia, musicas){
+
+let tamanhoMenorFrase;
+let tamanhoMaiorFrase;
+
+var gerar = function (liturgia,oracaoEucaristica, objMusicas){
   var pptx = new PptxGenJS();
+  let musicas = objMusicas.musicas;
+  tamanhoMenorFrase = objMusicas.tamanhoMenorFrase;
+  tamanhoMaiorFrase = objMusicas.tamanhoMaiorFrase;
 
   var capaSlide = pptx.addNewSlide();
   capaSlide.addText(liturgia.dia, { x:'0%', y:'5%', w:'100%',align: 'center',
@@ -41,8 +48,13 @@ var gerar = function (liturgia, musicas){
       AddSlideDivisorio(pptx);
     }
 
-    if('' == ''){ //oracao eucaristica
-
+    if(musica.titulo == 'SANTO'){ //oracao eucaristica
+      AddSlideDivisorioImagemPersonalizada(pptx, './resources/oracao-eucaristica.jpg')
+      for (var k = 0; k < oracaoEucaristica.length; k++) {
+        let oracao = oracaoEucaristica[k]
+        AddSlideTexto(pptx, 'Oração Eucaristica', oracao);
+        AddSlideDivisorioImagemPersonalizada(pptx, './resources/oracao-eucaristica.jpg')
+      }
     }
 
   }
@@ -61,20 +73,26 @@ function AddSlideTexto(pptx, titulo, conteudo){
    color:'363636', align :'center'})
 }
 
-function AddSlideDivisorio(pptx){
+function AddSlideDivisorioImagemPersonalizada(pptx, caminhoImagem){
   var slideDivisorio = pptx.addNewSlide();
   slideDivisorio.addImage({
     w: '100%',
     h: '100%',
-    path:'./resources/santa-terezinha.jpg'
+    path:caminhoImagem
   });
+
+}
+function AddSlideDivisorio(pptx){
+
+  AddSlideDivisorioImagemPersonalizada(pptx, './resources/santa-terezinha.jpg')
 
 }
 
 function calculaTamanhoFonte(tamanhoEstrofe){
   let tamanhoFonte = 18;
 
-  tamanhoFonte = tamanhoMaximoFont - ((tamanhoEstrofe-41) / (343/(tamanhoMaximoFont-tamanhoMinimoFont)))
+  tamanhoFonte = tamanhoMaximoFont - ((tamanhoEstrofe-tamanhoMenorFrase) /
+    (tamanhoMaiorFrase/(tamanhoMaximoFont-tamanhoMinimoFont)))
   process.stdout.write('>>> Tamanho da estrofe '+tamanhoEstrofe);
   process.stdout.write('>>> Tamanho da fonte '+tamanhoFonte);
   return tamanhoFonte;

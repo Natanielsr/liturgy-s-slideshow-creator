@@ -1,6 +1,8 @@
 var fs = require('fs');
 
 let musicas = [];
+let tamanhoMenorFrase = 1000;
+let tamanhoMaiorFrase = 0;
 
 var lerArquivo = function (){
   try {
@@ -52,6 +54,11 @@ function separarMusicas(data){
     else {
       if(estrofe){
         estrofes.push(estrofe);
+        if(estrofe.length > tamanhoMaiorFrase)
+          tamanhoMaiorFrase = estrofe.length
+        else if(estrofe.length < tamanhoMenorFrase)
+          tamanhoMenorFrase = estrofe.length
+
         estrofe = '';
       }
     }
@@ -67,7 +74,7 @@ function separarMusicas(data){
       titulo = '';
     }
   })
-  return musicas;
+  return {tamanhoMaiorFrase, tamanhoMenorFrase, musicas};
 }
 
 module.exports = lerArquivo;
