@@ -3,13 +3,12 @@ var gerarSlide = require('./scripts/gerar-slides')
 var dividirMusicas = require('./scripts/dividir-musicas')
 var BuscarLiturgia = require('./scripts/liturgia-chamada-request')
 var BuscarOracaoEucatistica = require('./scripts/busca-oracao-eucaristica')
-var BuscarMusica = require('./scripts/buscar-musicas');
+var buscarArrayMusicas = require('./scripts/buscar-musicas');
 
-BuscarMusica('Comunidade Shalom Ressuscitou',(letra)=>{
-  console.log(letra)
-});
-
+console.log(buscarArrayMusicas);
+buscarArrayMusicas()
 return ;
+
 let dia = 26
 readline.question('Digite o dia da litugia: ');
 let mes = 5
