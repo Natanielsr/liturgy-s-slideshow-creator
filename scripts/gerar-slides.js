@@ -25,6 +25,7 @@ var gerar = function (liturgia,oracaoEucaristica, objMusicas){
   let numeroDeMusicas = musicas.length;
   console.log('>> Numero de Musicas '+numeroDeMusicas);
   let contadorSlide = 1
+
   for (var i = 0; i < numeroDeMusicas; i++) {
     let musica = musicas[i];
 
@@ -35,15 +36,15 @@ var gerar = function (liturgia,oracaoEucaristica, objMusicas){
 
       AddSlideTexto(pptx, musica.titulo, estrofe);
 
-      process.stdout.write('>> Slide  '+contadorSlide+' Gerado com sucesso!');
+    //  process.stdout.write('>> Slide  '+contadorSlide+' Gerado com sucesso!');
 
-      process.stdout.write('----------------------\n');
+  //    process.stdout.write('----------------------\n');
       contadorSlide ++;
     }
 
     AddSlideDivisorio(pptx);
 
-    if(musica.titulo == 'HINOS DA PALAVRA'){ //salmo
+    if(musica.titulo == 'GLÓRIA'){ //salmo
       AddSlideTexto(pptx, 'Salmo', liturgia.fraseSalmo);
       AddSlideDivisorio(pptx);
     }
@@ -65,12 +66,15 @@ var gerar = function (liturgia,oracaoEucaristica, objMusicas){
 }
 
 function AddSlideTexto(pptx, titulo, conteudo){
+
   var slide = pptx.addNewSlide();
   slide.addText(titulo, { x:'0%', y:'5%', w:'100%',
    fontSize:20, color:'8F1010', bold:true, align: 'center' });
 
   slide.addText(conteudo, { x:'5%', y:'15%', w:'90%', h: '85%', fontSize:calculaTamanhoFonte(conteudo.length),
    color:'363636', align :'center'})
+
+   console.log('>> Slide '+titulo+' Adicionado com sucesso!!!')
 }
 
 function AddSlideDivisorioImagemPersonalizada(pptx, caminhoImagem){
@@ -93,8 +97,8 @@ function calculaTamanhoFonte(tamanhoEstrofe){
 
   tamanhoFonte = tamanhoMaximoFont - ((tamanhoEstrofe-tamanhoMenorFrase) /
     (tamanhoMaiorFrase/(tamanhoMaximoFont-tamanhoMinimoFont)))
-  process.stdout.write('>>> Tamanho da estrofe '+tamanhoEstrofe);
-  process.stdout.write('>>> Tamanho da fonte '+tamanhoFonte);
+//  process.stdout.write('>>> Tamanho da estrofe '+tamanhoEstrofe);
+//  process.stdout.write('>>> Tamanho da fonte '+tamanhoFonte);
   return tamanhoFonte;
 }
 

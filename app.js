@@ -3,15 +3,19 @@ var gerarSlide = require('./scripts/gerar-slides')
 var dividirMusicas = require('./scripts/dividir-musicas')
 var BuscarLiturgia = require('./scripts/liturgia-chamada-request')
 var BuscarOracaoEucatistica = require('./scripts/busca-oracao-eucaristica')
+var BuscarMusica = require('./scripts/buscar-musicas');
 
+BuscarMusica('Comunidade Shalom Ressuscitou',(letra)=>{
+  console.log(letra)
+});
 
-
+return ;
 let dia = 26
-//readline.question('Digite o dia da litugia: ');
+readline.question('Digite o dia da litugia: ');
 let mes = 5
-//readline.question('Digite o mes da litugia: ');
+readline.question('Digite o mes da litugia: ');
 let ano = 2019
-//readline.question('Digite o ano da litugia: ');
+readline.question('Digite o ano da litugia: ');
 console.log(dia, mes ,ano)
 
 
