@@ -88,4 +88,10 @@ typings/
 .dynamodb/
 
 #powerpoint
-.pptx
+*.pptx
+
+#pdf
+*.pdf
+
+#txt
+*.txt

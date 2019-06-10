@@ -8,12 +8,14 @@ var BuscarLiturgia = function(dia, mes, ano, response){
         let leituras = findTagValue('h3', data);
         let salmos = findTagValue("div class='refrao_salmo'", data);
         console.log(salmos);
+
+        let salmoReplace = salmos[0] ? salmos[0].replace('Ou:', '').replace('R.','') : '';
+
         let liturgia = {
           dia: findTagValue('h2', data)[0],
           leitura1: leituras[0],
           salmo:leituras[1],
-          fraseSalmo:salmos[0]
-          .replace('Ou:', '').replace('R.',''),
+          fraseSalmo:salmoReplace,
           leitura2:leituras[2],
           evangelho:leituras[3]
         };
