@@ -49,7 +49,7 @@ var gerar = function (liturgia,oracaoEucaristica, objMusicas){
       AddSlideDivisorio(pptx);
     }
 
-    if(musica.titulo == 'SANTO'){ //oracao eucaristica
+    if(musica.titulo.toUpperCase() == 'SANTO'){ //oracao eucaristica
       AddSlideDivisorioImagemPersonalizada(pptx, './resources/oracao-eucaristica.jpg')
       for (var k = 0; k < oracaoEucaristica.length; k++) {
         let oracao = oracaoEucaristica[k]
