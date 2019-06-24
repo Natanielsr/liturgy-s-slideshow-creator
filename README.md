@@ -1,15 +1,28 @@
 # liturgy-s-slideshow-creator
 Criador de slides para missa com músicas
 
-para executar o robo é muito simples
-basta executar na raiz do projeto 
-para instalar os pacotes
-npm install 
- e
- depois para executar o robo:
-node app.js
+Requisitos para usar o robo:
+- instalacao do node https://nodejs.org/en/
 
-o robo usara o txt na pasta resources
-para criar os slide
-também é possivel usar um pdf com as 
-músicas
+Como Executar o programa:
+- Atraves da linha de comando va até a pasta do projeto
+- Instale os pacotes utilizando o comando:    npm install
+- Execute o programa com o comando: node app.js\n
+
+Como utilizar o programa:
+
+Opção 1:
+- Digite a letra s para aceitar a busca por nomes
+- Digite os nomes das musicas confirmando com enter
+- digite q para sair
+- as musicas serão salvas no arquivo /resources/musicas.txt
+
+Opção 2:
+- As musicas não serão buscadas, assim é possivel escrever /resources/musicas.txt manualmente
+
+Apos gerar o txt:
+- O robo usara o txt na pasta resources para montar os slides
+
+- Digite a data da liturgia, o robo ira buscar as leituras do dia
+
+- O slide será gerado no formato .pptx na pasta /slide-result
