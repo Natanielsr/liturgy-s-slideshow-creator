@@ -5,13 +5,15 @@ Requisitos para usar o robo:
 - instalação do node https://nodejs.org/en/
 
 Como Executar o programa:
-Opção 1:
-- Abrir o arquivo RunApp.bat
 
-Opçao 2:
+Opçao 1:
 - Atraves da linha de comando va até a pasta do projeto
 - Instale os pacotes utilizando o comando:    npm install
-- Execute o programa com o comando: node app.js\n
+- Execute o programa com o comando: node app
+
+Opção 2:
+- Abrir o arquivo RunApp.bat
+
 
 Como utilizar o programa:
 
