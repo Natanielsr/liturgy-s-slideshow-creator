@@ -4,10 +4,10 @@ Criador de slides para missa com músicas
 Requisitos para usar o robo:
 - instalacao do node https://nodejs.org/en/
 
-Como Executar o programa:
-1 - Atraves da linha de comando va até a pasta do projeto
-2 - Instale os pacotes utilizando o comando:    npm install
-3 - Execute o programa com o comando: node app.js
+Como Executar o programa:\n
+1 - Atraves da linha de comando va até a pasta do projeto\n
+2 - Instale os pacotes utilizando o comando:    npm install\n
+3 - Execute o programa com o comando: node app.js\n
 
 Como utilizar o programa:
 
